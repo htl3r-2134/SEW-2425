@@ -1,0 +1,3 @@
+strawberry liqueur:Caipifragola,Strawberry Daiquiri
+strawberry sirup:Caipifragola
+lime juice:Latin Lover,Caipirinha,Caipifragola,Strawberry Daiquiri,Margarita,Malibu Margarita
