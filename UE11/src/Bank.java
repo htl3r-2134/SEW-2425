@@ -54,9 +54,33 @@ public class Bank {
         Konto b = new Konto();
         Konto c = new Konto();
 
-        Runnable r1 = new Ueberweiser(a, b, anzahl, 50);
-        Runnable r2 = new Ueberweiser(b, c, anzahl, 50);
-        Runnable r3 = new Ueberweiser(c, a, anzahl, 50);
+        a.add(100);
+        b.add(100);
+        c.add(100);
+
+        /*
+        Ueberweiser u1 = new Ueberweiser(a, b, anzahl, 10);
+        Ueberweiser u2 = new Ueberweiser(b, c, anzahl, 10);
+        Ueberweiser u3 = new Ueberweiser(c, a, anzahl, 10);
+
+        Long startTime = System.currentTimeMillis();
+
+        u1.start();
+        u2.start();
+        u3.start();
+
+        try {
+            u1.join();
+            u2.join();
+            u3.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        */
+
+        Runnable r1 = new Ueberweiser(a, b, anzahl, 10);
+        Runnable r2 = new Ueberweiser(b, c, anzahl, 10);
+        Runnable r3 = new Ueberweiser(c, a, anzahl, 10);
 
         Thread t1 = new Thread(r1);
         Thread t2 = new Thread(r2);
@@ -85,10 +109,10 @@ public class Bank {
         System.out.println(duration);
 
         // Dauer der Überweisung
-        // Dauer: 113ms
-        // Dauer Überweiser Threads: 97ms
-        // Dauer synchronized: 5071 ms
-        // Dauer Runnable: 4593 ms
-        // Dauer mit Thread.sleep und Anzahl = 1000: 1660 ms
+        // Dauer: 1405 ms
+        // Dauer Überweiser Threads: 4989 ms
+        // Dauer synchronized: 5052 ms
+        // Dauer Runnable: 3795 ms
+        // Dauer mit Thread.sleep und Anzahl = 1000: 1597 ms
     }
 }
